@@ -6,7 +6,6 @@ const todoControl = document.querySelector('.todo-control'),
     todoList = document.querySelector('.todo-list'),
     todoCompleted = document.querySelector('.todo-completed');
 
-
 const todoData = JSON.parse(localStorage.getItem('toDo')) || [];
 
 const render = function() {
@@ -56,9 +55,9 @@ todoControl.addEventListener('submit', function(event) {
 
     headerInput.value = '';
     todoData.push(newTodo);
+    localStorage.setItem('toDo', JSON.stringify(todoData));
     render();
     }
 });
-
 
 render();
